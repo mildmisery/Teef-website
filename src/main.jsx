@@ -9,8 +9,11 @@ createRoot(document.getElementById('root')).render(
     <main>
       <App />
     </main>
-    <footer>
-      <CreditsFooter />
-    </footer>
+  </StrictMode>,
+)
+
+createRoot(document.getElementsByTagName('footer')[0]).render(
+  <StrictMode>
+    <CreditsFooter />
   </StrictMode>,
 )

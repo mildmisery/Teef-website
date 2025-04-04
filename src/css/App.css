@@ -1,125 +1,96 @@
+.AppMainBody {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+/* Menu/Tabs/Header */
+
+.tabContainer {
+    width: 100%;
+    margin-bottom: 50px;
+
+    list-style: none;
+
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.tabContainer li {
+    width: 20%;
+    padding: 1em;
+    border-radius: 10px;
+    /*background-color: darkgray;*/
+    cursor: pointer;
+}
+
+.tabContainer li.active {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.tabContainer li.disabled {
+    color: #787878;
+    cursor: not-allowed;
+}
+
+/* Body Elements */
 
 .card {
+    width: 100%;
     padding: 2em;
+    margin: 1em;
+    background-color: darkgray;
+    border-radius: 10px;
 }
 
-.CharacterCardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    text-align: left;
-    gap: 0.25em;
-}
+/* Gallery Page */
 
-.CharacterCard {
-    min-width: 500px;
-    margin-bottom: 2em;
-    padding: 1em;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-
+.galleryContainer {
     display: flex;
-    flex-wrap: wrap;
-    flex-basis: 45%;
-    flex-grow: 1;
-}
-
-.CharacterInfo {
-    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 }
 
-.CharacterInfo h1, p {
-    margin: 5px 0;
-}
-
-.CharacterName {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-}
-
-.CharacterCardImage {
-    height: 12em;
+.galleryImg {
     width: 12em;
     margin: 1em;
+}
 
+/* Footer */
+
+.socialsList {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
-}
-
-.CharacterCardImage img {
-    height: 10em;
-}
-
-.CharacterWeapon {
-    display: flex;
     align-items: center;
-    gap: 0.5em;
+    gap: 1rem;
 }
 
-.CharacterWeapon img {
-    height: 5em;
-}
+.social-anchor {
+    padding: 1em;
+    border-radius: 50%;
+    border: 1px solid white;
+    height: 3em;
+    width: 3em;
 
-.CharacterEquipmentContainer {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 0.5em;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.CharacterEquipment {
-    display: flex;
-    gap: 1em;
-    flex-basis: 30%;
-    flex-grow: 1;
+.social-icon {
+    color: white;
+    max-width: 32px;
 }
 
-.CharacterEquipmentImage img {
-    height: 5em;
-    flex-grow: 1;
-    /*animation: spin 4s linear infinite;*/
-}
-
-@keyframes spin {
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.CharacterEquipmentStats {
-    flex-grow: 2;
-}
-
-@keyframes rgb {
-    0%, 100% {
-        color: red;
-    }
-    14.3% {
-        color: orange;
-    }
-    28.6% {
-        color: yellow;
-    }
-    42.8% {
-        color: green;
-    }
-    57.1% {
-        color: blue;
-    }
-    71.4% {
-        color: indigo;
-    }
-    85.7% {
-        color: violet;
-    }
-}
-
-.rgb {
-    animation-name: rgb;
-    animation-duration: 9000ms;
-    animation-timing-function: linear;
-    animation-delay: 0ms;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
+.social-icon-image {
+    max-width: 32px;
+    filter: invert(100%) saturate(0%) brightness(200%) contrast(200%);
 }
