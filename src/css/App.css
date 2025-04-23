@@ -3,6 +3,14 @@
     display: flex;
     flex-direction: column;
     place-items: center;
+
+    color: white;
+    font-weight: bold;
+    text-shadow:
+        -1px -1px 0 #000, /* Top-left */
+        1px -1px 0 #000, /* Top-right */
+        -1px  1px 0 #000, /* Bottom-left */
+        1px  1px 0 #000; /* Bottom-right */
 }
 
 /* Menu/Tabs/Header */
@@ -40,8 +48,8 @@
 /* Body Elements */
 
 .card {
-    width: 100%;
-    padding: 2em;
+    width: 95%;
+    padding: 1em;
     margin: 1em;
     background-color: darkgray;
     border-radius: 10px;

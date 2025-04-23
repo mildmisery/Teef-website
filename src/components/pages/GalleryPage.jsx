@@ -12,8 +12,8 @@ export default class GalleryPage extends Component {
     // dynamic can be: const module = await import(`./dir/${file}.js`)
     const files = import.meta.glob(
       [
-        // '/gallery/**/*.{png,jpg,jpeg,PNG,JPEG}',
-        '/src/gallery/**/*.{png,jpg,jpeg,PNG,JPEG}'
+        '/gallery/**/*.{png,jpg,jpeg,PNG,JPEG}',
+        '/public/gallery/**/*.{png,jpg,jpeg,PNG,JPEG}'
       ],
       { eager: true, import: 'default' }
     ); // /src/assets/gallery/**/*
@@ -68,7 +68,13 @@ class GalleryCard extends Component {
         <h1>{this.title}</h1>
         <div className={'galleryContainer'}>
           {Object.values( this.files ).map( ( file, index ) => {
-            return ( <img className={'galleryImg'} alt={"Teef's wonderful art"} src={baseUrl + file} key={index}/> )
+            if ( import.meta.env.PROD ) {
+              const parts = file.split('/'); // Split the string into an array
+              const filteredParts = parts.filter(part => part !== 'public'); // Remove 'public'
+              file = filteredParts.join('/'); // Reconstruct the string
+            }
+            
+            return ( <img className={'galleryImg'} alt={"Teef's wonderful art"} src={baseUrl + file + '?url'} key={index}/> )
           } )}
         </div>
       
