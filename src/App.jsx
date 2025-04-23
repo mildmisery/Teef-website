@@ -22,6 +22,7 @@ export default class App extends Component {
       activeTab: TABS.HOME,
     };
     
+    this.baseDirectory = import.meta.env.BASE_URL;
   }
   
   onTabChange = tab => {
@@ -31,7 +32,7 @@ export default class App extends Component {
   }
   
   UpdatePage = activeTab => {
-    history.pushState(null, activeTab.title, `/${activeTab.title}` );
+    history.pushState(null, activeTab.title, this.baseDirectory + activeTab.title );
   }
 
   render() {

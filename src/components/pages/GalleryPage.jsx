@@ -6,15 +6,14 @@ export default class GalleryPage extends Component {
     super( props );
     
     this.filesByDirectory = this.getFilesByDirectory();
-    console.log( this.filesByDirectory );
   }
   
   getFilesByDirectory() {
     // dynamic can be: const module = await import(`./dir/${file}.js`)
     const files = import.meta.glob(
       [
-        '/gallery/**/*.{png,jpg,jpeg,PNG,JPEG}',
-        '/public/gallery/**/*.{png,jpg,jpeg,PNG,JPEG}'
+        // '/gallery/**/*.{png,jpg,jpeg,PNG,JPEG}',
+        '/src/gallery/**/*.{png,jpg,jpeg,PNG,JPEG}'
       ],
       { eager: true, import: 'default' }
     ); // /src/assets/gallery/**/*
@@ -62,12 +61,14 @@ class GalleryCard extends Component {
   }
   
   render() {
+    let baseUrl = (import.meta.env.BASE_URL).slice(0, -1);
+    
     return (
       <div className="card">
         <h1>{this.title}</h1>
         <div className={'galleryContainer'}>
           {Object.values( this.files ).map( ( file, index ) => {
-            return ( <img className={'galleryImg'} alt={"Teef's wonderful art"} src={file} key={index}/> )
+            return ( <img className={'galleryImg'} alt={"Teef's wonderful art"} src={baseUrl + file} key={index}/> )
           } )}
         </div>
       
