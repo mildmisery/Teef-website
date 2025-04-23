@@ -225,12 +225,13 @@ class GalleryCard extends Component {
         <h1>{this.title}</h1>
         <div className={'galleryContainer'}>
           {Object.values( this.files ).map( ( file, index ) => {
-            let filepath = baseUrl + file;
+            let filepath = file;
             if ( import.meta.env.PROD ) {
               const parts = file.split( '/' ); // Split the string into an array
               const filteredParts = parts.filter( part => part !== 'public' ); // Remove 'public'
               filepath = filteredParts.join( '/' ); // Reconstruct the string
             }
+            filepath = baseUrl + filepath;
             
             return (
               <img
