@@ -27,17 +27,17 @@ export default class CreditsFooter extends Component {
           { this.renderIcon( false, vgenIcon, 'https://vgen.co/teefs_art') }
           { this.renderIcon( false, redbubbleIcon, 'https://www.redbubble.com/people/teefsart/shop') }
         </div>
-        <p>My name teef</p>
+        <p className={'footerCopyright'}>My name teef &#169; {(new Date()).getFullYear()}</p>
       </>
     )
   }
   
   renderIcon( isFa, icon, link) {
     return (
-      <a href={ link } className={ 'social-anchor' } target={ '_blank' } rel={ 'noopener noreferrer' }>
+      <a href={ link } className={ 'socialAnchor' } target={ '_blank' } rel={ 'noopener noreferrer' }>
         { isFa
-          ? <FontAwesomeIcon className={ 'social-icon' } icon={ icon } size={"3x"} />
-          : <img className={ 'social-icon-image' } src={ icon } alt={ 'Social media icon' } />
+          ? <FontAwesomeIcon className={ 'socialIcon' } icon={ icon } size={"3x"} />
+          : <img className={ 'socialIconImage' } src={ icon } alt={ 'Social media icon' } />
         }
       </a>
     )

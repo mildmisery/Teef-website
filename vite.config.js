@@ -7,6 +7,11 @@ export default defineConfig({
   plugins: [
     react()
   ],
+  resolve: {
+    alias: [
+      { find: '@assets', replacement: '/src/assets' },
+    ]
+  },
   preview: {
     port: 8080,
     strictPort: true,
